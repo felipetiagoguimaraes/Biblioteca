@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/../semantic/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="~/../semantic/dist/semantic.min.css">
+    <script
+ 	 src="https://code.jquery.com/jquery-3.1.1.min.js"
+ 	 integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+ 	 crossorigin="anonymous"></script>
+    <script src="~/../semantic/dist/semantic.min.js"></script>
+    <script type="text/javascript" src="~/../semantic/dist/semantic.js"></script>
+    <link rel="icon" href="~/../book-icon.png">
+    <link rel="stylesheet" href="~/../css/style.css">
+
+</head>
+
+<header>
+
+        <div class="ui left vertical inverted thin sidebar menu visible" style="background-color: #120a18">
+                <div class="item">
+                        <a class="ui logo icon image" href="/">
+                          <img src="~/../iconelivro.png"></a>
+                        </div>
+                        </a>
+                <a class="item">Cadastro</a>
+                <a class="item">Empréstimo</a>
+                <a class="item">Consultar</a>
+                <a class="item">Cadastro</a>
+                <a class="item">Pagamentos</a>
+                <a class="item">Meu Perfil</a>
+                </div>
+
+</header>
+
+
+<body>
+<article class="ui container">
+    {% block body_block %} {% endblock body_block %}
+</article>
+</body>

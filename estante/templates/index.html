@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <h1>
+        Login
+    </h1>
+
+    <section class="ui container">
+        <article class="ui grid">
+            <div class="two wide column"></div>
+            <div class="twelve wide column" id="margem">
+
+                <form method="POST" action="{% url 'estante:login' %}" class='ui fluid form'>
+                    {% csrf_token %}
+
+                    {% if msg %}
+                        <div>{{ msg }}</div>
+                    {% endif %}
+
+
+                    <div class="field">
+
+                        <label>{{ form.username.label }}</label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            {{ form.username.errors }}
+                        {% endif %}
+                    </div>
+                    <br/>
+
+                    <div class="field">
+                        <label>{{ form.password.label }}</label>
+                        {{ form.password }}
+                        {% if form.errors %}
+                            {{ form.non_field_errors }}
+                        {% endif %}
+                    </div>
+                    <br/>
+                    <div align="center">
+                        <button type="submit" class="ui blue button">Entrar</button>
+                        <br/><br/>
+                        <a href="{% url 'estante:cadastro-pessoa' %}">Ainda não tem conta? Crie uma agora
+                            mesmo!</a>
+                    </div>
+                </form>
+            </div>
+        </article>
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'semantic/dist/semantic.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.min.css' %}">
+    <script
+ 	 src="https://code.jquery.com/jquery-3.1.1.min.js"
+ 	 integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+ 	 crossorigin="anonymous">
+    </script>
+    <script src="{% static 'semantic/dist/semantic.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'semantic/dist/semantic.js' %}"></script>
+    <link rel="icon" href="{% static 'book-icon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Bibliotefast</title>
+</head>
+
+<header>
+
+    <div class="ui left vertical inverted thin sidebar menu visible" style="background-color: #120a18">
+        <div class="item" id="logo_menu">
+            <a class="ui logo icon image" href="/">
+                <img src="{% static 'iconelivro.png' %}">
+            </a>
+            <br/><br/>
+        </div>
+        {% if user.is_authenticated %}
+            <a class="item" href="{% url 'estante:cadastro-livro' %}">Cadastrar Livro</a>
+            <a class="item" href="{% url 'estante:lista_livros' %}">Consultar</a>
+            <!--<a class="item" href="#">Empréstimo</a>-->
+            <a class="item" href="{% url 'estante:cadastro-pessoa' %}">Cadastrar Usuário</a>
+            <a class="item" href="{% url 'estante:perfil' %}">Meu Perfil</a>
+            <a class="item" href="{% url 'estante:logout' %}">Sair</a>
+        {% else %}
+            <a class="item" href="{% url 'estante:cadastro-pessoa' %}">Cadastre-se</a>
+        {% endif %}
+
+    </div>
+
+</header>
+
+
+<body>
+<article class="ui container">
+    {% block content %}
+    {% endblock content %}
+</article>
+</body>
